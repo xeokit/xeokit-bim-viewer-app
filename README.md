@@ -19,6 +19,8 @@ npm run build
 node createProject.js -p myProject -s ./demoModels/**/*.ifc
 ````
 
+That will create directory ````./data/demoModels```` and modify ````./data/projects/index.json````.
+
 2. Start a Web server:
 
 ````bash
