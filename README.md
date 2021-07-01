@@ -29,11 +29,12 @@ http-server -p 8080
 
 [http://localhost:8080/?projectId=myProject](http://localhost:8080/?projectId=myProject)
 
-4. Publish the project to the Web:
+4. Publish the project to the Web, eg:
 
 ````
 git add ./data
 git commit -m "Added new project"
+git push origin main
 ````
 
 ### Deleting a Project
@@ -52,7 +53,9 @@ Run this command to create a demo project containing all our sample models:
 node createProject.js -p demoProject -s ./demoModels/**/*
 ````
 
-[http://localhost:8080/?projectId=myProject](http://localhost:8080/?projectId=myProject)
+We've actually already created and published that demo project, which you can view here:  
+
+[https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject](https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject)
 
 ### Deleting the Demo Project
 

@@ -115,7 +115,7 @@ async function createProject() {
         for (let i = 0, len = projectsIndex.projects.length; i < len; i++) {
             const projectInfo = projectsIndex.projects[i];
             if (projectInfo.id === projectId) {
-                log(`Project already exists: "${projectId}" (use ./deleteProject to delete it)`);
+                log(`Project already exists: "${projectId}"`);
                 process.exit(1);
             }
         }
