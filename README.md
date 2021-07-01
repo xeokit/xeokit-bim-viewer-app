@@ -3,8 +3,9 @@
 # Installing
 
 ````bash
+git clone https://github.com/xeokit/xeokit-bim-viewer-ex1.git
+cd ./xeokit-bim-viewer-ex1
 npm install
-
 npm run build
 ````
 
@@ -30,6 +31,13 @@ http-server -p 8080
 3. View the project in your browser:
 
 [http://localhost:8080/projectId=myProject](http://localhost:8080/projectId=myProject)
+
+4. Publish the project to the Web:
+
+````
+git add ./data/demoModels
+git commit -m "Added new project"
+````
 
 ### Deleting a Project
 
