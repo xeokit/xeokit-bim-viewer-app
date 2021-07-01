@@ -1,0 +1,79 @@
+{
+	"id": "demoProject",
+	"name": "demoProject",
+	"created": "Wed, 14 Jun 2017 07:00:00 GMT",
+	"models": [
+		{
+			"id": "DenHaag_01",
+			"name": "DenHaag_01",
+			"metadata": {
+				"sourceFormat": "CityJSON",
+				"schemaVersion": "1.0",
+				"title": "",
+				"author": "",
+				"created": "",
+				"numObjects": 1991,
+				"numTriangles": 41197,
+				"numVertices": 71069,
+				"xktSizeKb": "399.34",
+				"aabb": [
+					78248.66,
+					2.463,
+					457604.591,
+					79036.024,
+					37.481,
+					458276.439
+				]
+			}
+		},
+		{
+			"id": "LoD3_Railway",
+			"name": "LoD3_Railway",
+			"metadata": {
+				"sourceFormat": "CityJSON",
+				"schemaVersion": "1.0",
+				"title": "",
+				"author": "",
+				"created": "",
+				"numObjects": 120,
+				"numTriangles": 113537,
+				"numVertices": 170281,
+				"xktSizeKb": "878.91",
+				"aabb": [
+					0.56,
+					7.579,
+					0.64,
+					12.64,
+					9.103,
+					7.68
+				]
+			}
+		},
+		{
+			"id": "VM05_2009",
+			"name": "VM05_2009",
+			"metadata": {
+				"sourceFormat": "CityJSON",
+				"schemaVersion": "1.0",
+				"title": "",
+				"author": "",
+				"created": "",
+				"numObjects": 294,
+				"numTriangles": 63265,
+				"numVertices": 32242,
+				"xktSizeKb": "519.13",
+				"aabb": [
+					300060.181,
+					5040722.785,
+					8.444,
+					301073.701,
+					5042282.343,
+					129.092
+				]
+			}
+		}
+	],
+	"viewerConfigs": {},
+	"viewerContent": {},
+	"viewerState": {}
+}

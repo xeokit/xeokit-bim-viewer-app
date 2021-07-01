@@ -1,3 +1,8 @@
 {
-	"projects": []
+	"projects": [
+		{
+			"id": "demoProject",
+			"name": "demoProject"
+		}
+	]
 }
