@@ -1,0 +1,50 @@
+{
+  "name": "xeokit-bim-viewer-demo",
+  "version": "1.0.0",
+  "description": "BIM viewer build with xeokit-bim-viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": " rollup -c",
+    "create-test-project": "node ./createProject.js -p demoProject -s ./demoModels/**/*",
+    "delete-test-project": "node deleteProject.js -p demoProject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeokit/xeokit-bim-viewer-ex1.git"
+  },
+  "keywords": [
+    "OpenProject",
+    "webgl",
+    "javascript",
+    "xeokit",
+    "xeolabs",
+    "ifc",
+    "bim",
+    "buildingsmart",
+    "openbim",
+    "opensource",
+    "3d-viewer"
+  ],
+  "author": "Lindsay Kay",
+  "license": "See LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/xeokit/xeokit-bim-viewer-demo/issues"
+  },
+  "homepage": "https://github.com/xeokit/xeokit-bim-viewer-demo#readme",
+  "dependencies": {
+    "@xeokit/xeokit-bim-viewer": "^2.3.0-alpha.1",
+    "@xeokit/xeokit-xkt-utils": "^1.4.0-alpha.9",
+    "commander": "^8.0.0",
+    "glob": "^7.1.7",
+    "rimraf": "^3.0.2",
+    "http-server": "^0.12.3",
+    "puppeteer": "^10.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "rollup": "^1.32.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

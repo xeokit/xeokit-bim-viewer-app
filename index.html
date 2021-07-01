@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>xeokit BIM Viewer Demo</title>
+    <link rel="stylesheet" href="lib/fontawesome-free-5.11.2-web/css/all.min.css" type="text/css"/>
+    <link rel="stylesheet" href="./lib/xeokit-bim-viewer.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+<input type="checkbox" id="explorer_toggle"/>
+<label for="explorer_toggle" class="explorer_toggle_label xeokit-btn fas fa-2x fa-sitemap"
+       data-tippy-content="Toggle explorer panel"></label>
+<div id="myExplorer"></div>
+<div id="myToolbar"></div>
+<div id="myViewer">
+    <canvas id="myCanvas"></canvas>
+    <canvas id="myNavCubeCanvas"></canvas>
+</div>
+</body>
+
+<!-- App tooltips libraries-->
+<script src="lib/popper.js"></script>
+<script src="lib/tippy.js"></script>
+
+<script type="module">
+
+    // Set up application
+
+    import {Server, BIMViewer} from "./lib/xeokit-bim-viewer.es.js";
+
+    window.onload = function () {
+
+        const requestParams = getRequestParams();
+
+        const projectId = requestParams.projectId;
+        if (!projectId) {
+            return;
+        }
+
+        setExplorerOpen(requestParams.openExplorer === "true");
+
+        const server = new Server({
+            dataDir: "./data"
+        });
+
+        const bimViewer = new BIMViewer(server, {
+            canvasElement: document.getElementById("myCanvas"), // WebGL canvas
+            explorerElement: document.getElementById("myExplorer"), // Left panel
+            toolbarElement: document.getElementById("myToolbar"), // Toolbar
+            navCubeCanvasElement: document.getElementById("myNavCubeCanvas"),
+            busyModelBackdropElement: document.getElementById("myViewer"),
+            enableEditModels: false
+        });
+
+        tippy('[data-tippy-content]', {
+            appendTo: "parent",
+            zIndex: 100000
+        });
+
+        bimViewer.setConfigs({});
+
+        bimViewer.on("queryPicked", (event) => {
+            bimViewer.getObjectInfo(event.projectId, event.modelId, event.objectId, (objectInfo) => {
+                alert(JSON.stringify(objectInfo, null, "\t"));
+            }, (errMsg) => {
+                alert(errMsg);
+            })
+            console.log("queryPicked: " + JSON.stringify(event, null, "\t"));
+        });
+
+        const viewerConfigs = requestParams.configs;
+        if (viewerConfigs) {
+            const configNameVals = viewerConfigs.split(",");
+            for (let i = 0, len = configNameVals.length; i < len; i++) {
+                const configNameValStr = configNameVals[i];
+                const configNameVal = configNameValStr.split(":");
+                const configName = configNameVal[0];
+                const configVal = configNameVal[1];
+                bimViewer.setConfig(configName, configVal);
+            }
+        }
+
+        bimViewer.loadProject(
+            projectId,
+            () => {
+                const modelId = requestParams.modelId;
+                if (modelId) {
+                    bimViewer.loadModel(modelId);
+                }
+                const tab = requestParams.tab;
+                if (tab) {
+                    bimViewer.openTab(tab);
+                }
+            },
+            (errorMsg) => {
+                console.error(errorMsg);
+            });
+
+        function getRequestParams() {
+            const vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        function setExplorerOpen(explorerOpen) {
+            const toggle = document.getElementById("explorer_toggle");
+            if (toggle) {
+                toggle.checked = explorerOpen;
+            }
+        }
+    };
+
+</script>
+
+</html>

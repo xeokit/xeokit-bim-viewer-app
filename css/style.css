@@ -1,0 +1,135 @@
+
+html, body {
+    height: 100%;
+    background: #f2f2f2;
+    touch-action: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.50;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    overflow: hidden;
+}
+
+#myViewer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    z-index: 10000;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    transition: all 300ms ease-in-out;
+}
+
+#myToolbar {
+    min-width: 400px;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 100000;
+    pointer-events: none;
+    position: fixed;
+    left: 95px;
+    transition: all 300ms ease-in-out;
+}
+
+#myCanvas {
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+    cursor: default;
+    pointer-events: all;
+    margin: 0;
+    position: relative;
+}
+
+#myNavCubeCanvas {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    right: 0;
+    z-index: 200000;
+}
+
+#myExplorer {
+    position: fixed;
+    height: 100%;
+    color: #fff;
+    background: #03103F;
+    overflow: auto;
+    border-right: 2px solid #212529;
+    padding: 0px;
+    padding-bottom: 100px;
+    padding-left: 15px;
+    user-select: none;
+    top: 0;
+    left: -460px;
+    z-index: 10;
+    width: 460px;
+    transition: all 300ms ease-in-out;
+}
+
+#explorer_toggle {
+    display: none;
+}
+
+.explorer_toggle_label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex: 1 1 auto;
+    color: #03103F;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #1d2453;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    -webkit-appearance: button;
+    overflow: visible;
+    margin: 0 2px 0 0;
+    box-sizing: border-box;
+    align-items: flex-start;
+    pointer-events: all;
+    z-index: 100000;
+    transition: all 300ms ease-in-out;
+}
+
+.explorer_toggle_label:hover {
+    cursor: pointer;
+}
+
+#explorer_toggle:checked + .explorer_toggle_label {
+    left: 480px;
+    color: #fff;
+    background-color: #03103F;
+    border-color: #03103F;
+}
+
+#explorer_toggle:checked ~ #myExplorer {
+    left: 0;
+}
+
+#explorer_toggle:checked ~ #myViewer {
+    left: 460px;
+    width: calc(100% - 460px);
+}
+
+#explorer_toggle:checked ~ #myToolbar {
+    left: 555px;
+}
+
+.xeokit-btn {
+    box-shadow: 1px 2px 1px rgba(0,0,0,0.1);
+}
+
