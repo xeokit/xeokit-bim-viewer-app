@@ -19,9 +19,6 @@ npm run build
 node createProject.js -p myProject -s ./demoModels/**/*.ifc
 ````
 
-That will create directory ````./data/demoModels```` and modify ````./data/projects/index.json````. Be sure to add and
-commit those updates if you wish to publish your project to the Web via GitHub pages.
-
 2. Start a Web server:
 
 ````bash
@@ -30,12 +27,12 @@ http-server -p 8080
 
 3. View the project in your browser:
 
-[http://localhost:8080/projectId=myProject](http://localhost:8080/projectId=myProject)
+[http://localhost:8080/?projectId=myProject](http://localhost:8080/?projectId=myProject)
 
 4. Publish the project to the Web:
 
 ````
-git add ./data/demoModels
+git add ./data
 git commit -m "Added new project"
 ````
 
@@ -55,7 +52,7 @@ Run this command to create a demo project containing all our sample models:
 node createProject.js -p demoProject -s ./demoModels/**/*
 ````
 
-[http://localhost:8080/projectId=myProject](http://localhost:8080/projectId=myProject)
+[http://localhost:8080/?projectId=myProject](http://localhost:8080/?projectId=myProject)
 
 ### Deleting the Demo Project
 
