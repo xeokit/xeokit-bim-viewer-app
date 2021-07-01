@@ -18,7 +18,8 @@ npm run build
 node createProject.js -p myProject -s ./demoModels/**/*.ifc
 ````
 
-That will create directory ````./data/demoModels```` and modify ````./data/projects/index.json````.
+That will create directory ````./data/demoModels```` and modify ````./data/projects/index.json````. Be sure to add and
+commit those updates if you wish to publish your project to the Web via GitHub pages.
 
 2. Start a Web server:
 
