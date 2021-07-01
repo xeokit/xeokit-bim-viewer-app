@@ -18,6 +18,8 @@ npm run build
 node createProject.js -p myProject -s ./demoModels/**/*.ifc
 ````
 
+That will create directory ````./data/demoModels```` and modify ````./data/projects/index.json````.
+
 2. Start a Web server:
 
 ````bash
@@ -33,6 +35,8 @@ http-server -p 8080
 ````bash
 node deleteProject.js -p myProject
 ````
+
+That will delete directory ````./data/demoModels```` and modify ````./data/projects/index.json````.
 
 ### Creating the Demo Project
 
