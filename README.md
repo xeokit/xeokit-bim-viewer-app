@@ -6,7 +6,7 @@
 
 ---
 
-**[xeokit-bim-viewer-app](https://github.com/xeokit/xeokit-bim-viewer-app)** is a single-page BIM viewer application,
+**[xeokit-bim-viewer-app](https://github.com/xeokit/xeokit-bim-viewer-app)** is a BIM model viewer application,
 built around [xeokit-bim-viewer](https://github.com/xeokit/xeokit-bim-viewer), that loads XKT files and metadata
 from a data directory.
 
