@@ -7,11 +7,11 @@
 ---
 
 **[xeokit-bim-viewer-demo](https://github.com/xeokit/xeokit-bim-viewer-demo)** is a single-page BIM viewer application,
-built around [xeokit-bim-viewer](https://github.com/xeokit/xeokit-bim-viewer), that loads XKT files and IFC metadata
+built around [xeokit-bim-viewer](https://github.com/xeokit/xeokit-bim-viewer), that loads XKT files and metadata
 from a data directory.
 
 The viewer comes with a Node.js CLI script that batch-converts model files, of various source formats (including IFC,
-CityJSON, LAZ and glTF), into XKT files within the data directory.
+CityJSON, LAZ and glTF), into XKT files and metadata within the data directory.
 
 Then we can serve our viewer with GitHub pages or our own HTTP server, point our browser at it, and view our models.
 
