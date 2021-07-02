@@ -1,5 +1,41 @@
 # xeokit-bim-viewer-demo
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/xeolabs?style=social)](https://twitter.com/xeolabs) [![npm version](https://badge.fury.io/js/%40xeokit%2Fxeokit-bim-viewer.svg)](https://badge.fury.io/js/%40xeokit%2Fxeokit-bim-viewer)
+
+[![Screenshot](https://github.com/xeokit/xeokit-bim-viewer/raw/master/images/xeokit-bim-viewer.png)](https://xeokit.github.io/xeokit-bim-viewer/app/index.html?projectId=OTCConferenceCenter&tab=storeys)
+
+---
+
+**[xeokit-bim-viewer-demo](https://github.com/xeokit/xeokit-bim-viewer-demo)** is a single-page BIM viewer application,
+built around [xeokit-bim-viewer](https://github.com/xeokit/xeokit-bim-viewer), that loads XKT files and IFC metadata
+from a data directory.
+
+The viewer comes with a Node.js CLI script that batch-converts model files, of various source formats (including IFC,
+CityJSON, LAZ and glTF), into XKT files within the data directory.
+
+Then we can serve our viewer with GitHub pages or our own HTTP server, point our browser at it, and view our models.
+
+Using this viewer is as simple as cloning the repo, building it, dropping in your own IFC/CityJSON/LAZ/glTF models, then
+running the script on those models.
+
+Read the documentation below to get started.
+
+--- 
+
+* [Source Code](https://github.com/xeokit/xeokit-bim-viewer-demo)
+* [xeokit SDK](http://xeokit.io)
+
+---
+
+## Contents
+
+- [Installing](#installing)
+- [Usage](#usage)
+    + [Creating a Project](#creating-a-project)
+    + [Deleting a Project](#deleting-a-project)
+    + [Creating the Demo Project](#creating-the-demo-project)
+    + [Deleting the Demo Project](#deleting-the-demo-project)
+    
 # Installing
 
 ````bash
@@ -55,7 +91,7 @@ Run this command to create a demo project containing all our sample models:
 node createProject.js -p demoProject -s ./demoModels/**/*
 ````
 
-We've actually already created and published that demo project, which you can view here:  
+We've actually already created and published that demo project, which you can view here:
 
 [https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject&modelId=DenHaag_01](https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject&modelId=DenHaag_01)
 
