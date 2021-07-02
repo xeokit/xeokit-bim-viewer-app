@@ -81,7 +81,7 @@ git push origin main
 node deleteProject.js -p myProject
 ````
 
-That will delete directory ````./data/demoModels```` and modify ````./data/projects/index.json````.
+That will delete directory ````./data/myProject```` and modify ````./data/projects/index.json````.
 
 ### Creating the Demo Project
 
