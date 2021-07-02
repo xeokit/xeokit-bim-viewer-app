@@ -2,7 +2,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import {terser} from "rollup-plugin-terser";
 
 export default {
-    input: './index.js',
+    input: '@xeokit/xeokit-bim-viewer/dist/xeokit-bim-viewer.es.js',
     output: {
         file: './lib/xeokit-bim-viewer.es.js',
         format: 'es',
@@ -10,6 +10,6 @@ export default {
     },
     plugins: [
         nodeResolve(),
-        // terser()
+        terser()
     ]
 }
