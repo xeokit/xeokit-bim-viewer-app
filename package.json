@@ -1,5 +1,5 @@
 {
-  "name": "xeokit-bim-viewer-demo",
+  "name": "xeokit-bim-viewer-app",
   "version": "1.0.0",
   "description": "BIM viewer build with xeokit-bim-viewer",
   "main": "index.js",
@@ -29,9 +29,9 @@
   "author": "Lindsay Kay",
   "license": "See LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/xeokit/xeokit-bim-viewer-demo/issues"
+    "url": "https://github.com/xeokit/xeokit-bim-viewer-app/issues"
   },
-  "homepage": "https://github.com/xeokit/xeokit-bim-viewer-demo#readme",
+  "homepage": "https://github.com/xeokit/xeokit-bim-viewer-app#readme",
   "dependencies": {
     "@xeokit/xeokit-bim-viewer": "^2.3.0-alpha.1",
     "@xeokit/xeokit-xkt-utils": "^1.4.0-alpha.9",

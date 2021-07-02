@@ -1,4 +1,4 @@
-# xeokit-bim-viewer-demo
+# xeokit-bim-viewer-app
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/xeolabs?style=social)](https://twitter.com/xeolabs) [![npm version](https://badge.fury.io/js/%40xeokit%2Fxeokit-bim-viewer.svg)](https://badge.fury.io/js/%40xeokit%2Fxeokit-bim-viewer)
 
@@ -6,7 +6,7 @@
 
 ---
 
-**[xeokit-bim-viewer-demo](https://github.com/xeokit/xeokit-bim-viewer-demo)** is a single-page BIM viewer application,
+**[xeokit-bim-viewer-app](https://github.com/xeokit/xeokit-bim-viewer-app)** is a single-page BIM viewer application,
 built around [xeokit-bim-viewer](https://github.com/xeokit/xeokit-bim-viewer), that loads XKT files and metadata
 from a data directory.
 
@@ -22,7 +22,7 @@ Read the documentation below to get started.
 
 --- 
 
-* [Source Code](https://github.com/xeokit/xeokit-bim-viewer-demo)
+* [Source Code](https://github.com/xeokit/xeokit-bim-viewer-app)
 * [xeokit SDK](http://xeokit.io)
 
 ---
