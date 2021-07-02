@@ -93,7 +93,7 @@ node createProject.js -p demoProject -s ./demoModels/**/*
 
 We've actually already created and published that demo project, which you can view here:
 
-[https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject&modelId=DenHaag_01](https://xeokit.github.io/xeokit-bim-viewer-ex1/?projectId=demoProject&modelId=DenHaag_01)
+[https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=DenHaag_01](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=DenHaag_01)
 
 ### Deleting the Demo Project
 
