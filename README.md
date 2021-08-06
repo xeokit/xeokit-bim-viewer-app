@@ -39,8 +39,8 @@ Read the documentation below to get started.
 # Installing
 
 ````bash
-git clone https://github.com/xeokit/xeokit-bim-viewer-ex1.git
-cd ./xeokit-bim-viewer-ex1
+git clone https://github.com/xeokit/xeokit-bim-viewer-app.git
+cd ./xeokit-bim-viewer-app
 npm install
 npm run build
 ````
