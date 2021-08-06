@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": " rollup -c",
-    "create-test-project": "node ./createProject.js -p demoProject -s ./demoModels/**/*",
-    "delete-test-project": "node deleteProject.js -p demoProject"
+    "create-demo-project": "node ./createProject.js -p demoProject -s ./demoModels/**/*",
+    "delete-demo-project": "node deleteProject.js -p demoProject"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,8 @@
   },
   "homepage": "https://github.com/xeokit/xeokit-bim-viewer-app#readme",
   "dependencies": {
-    "@xeokit/xeokit-bim-viewer": "^2.3.0-alpha.1",
-    "@xeokit/xeokit-xkt-utils": "^1.4.0-alpha.9",
+    "@xeokit/xeokit-bim-viewer": "^2.3.0-alpha.20",
+    "@xeokit/xeokit-xkt-utils": "^1.4.0-alpha.13",
     "commander": "^8.0.0",
     "glob": "^7.1.7",
     "rimraf": "^3.0.2",
