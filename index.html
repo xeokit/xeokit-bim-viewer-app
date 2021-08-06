@@ -13,8 +13,8 @@
 
 <body>
 <input type="checkbox" id="explorer_toggle"/>
-<label for="explorer_toggle" class="explorer_toggle_label xeokit-btn fas fa-2x fa-sitemap"
-       data-tippy-content="Toggle explorer panel"></label>
+<label for="explorer_toggle" class="xeokit-i18n explorer_toggle_label xeokit-btn fas fa-2x fa-sitemap"
+       data-xeokit-i18ntip="toolbar.toggleExplorer" data-tippy-content="Toggle explorer"></label>
 <div id="myExplorer"></div>
 <div id="myToolbar"></div>
 <div id="myViewer">
@@ -31,11 +31,16 @@
 
     // Set up application
 
-    import {Server, BIMViewer} from "./lib/xeokit-bim-viewer.es.js";
+    import {Server, BIMViewer, LocaleService} from "./lib/xeokit-bim-viewer.es.js";
+
+    import {messages as localeMessages} from "./locales/messages.js";
 
     window.onload = function () {
 
         const requestParams = getRequestParams();
+
+        // Localization
+        const locale = requestParams.locale || "en";
 
         const projectId = requestParams.projectId;
         if (!projectId) {
@@ -49,17 +54,50 @@
         });
 
         const bimViewer = new BIMViewer(server, {
+            localeService: new LocaleService({
+                messages: localeMessages,
+                locale: locale
+            }),
             canvasElement: document.getElementById("myCanvas"), // WebGL canvas
             explorerElement: document.getElementById("myExplorer"), // Left panel
             toolbarElement: document.getElementById("myToolbar"), // Toolbar
             navCubeCanvasElement: document.getElementById("myNavCubeCanvas"),
             busyModelBackdropElement: document.getElementById("myViewer"),
-            enableEditModels: false
+            enableEditModels: false,
+            excludeUnclassifiedObjects: true
         });
 
-        tippy('[data-tippy-content]', {
-            appendTo: "parent",
-            zIndex: 100000
+        bimViewer.localeService.on("updated", () => {
+
+            // On each localized element, create a tooltip, and possibly label text
+
+            const localizedElements = document.querySelectorAll('.xeokit-i18n');
+
+            localizedElements.forEach((localizedElement) => {
+
+                // Update text label
+                if (localizedElement.dataset.xeokitI18n) {
+                    localizedElement.innerText = bimViewer.localeService.translate(localizedElement.dataset.xeokitI18n);
+                }
+
+                // Create text for tooltip
+                if (localizedElement.dataset.xeokitI18ntip) {
+                    localizedElement.dataset.tippyContent = bimViewer.localeService.translate(localizedElement.dataset.xeokitI18ntip);
+                }
+
+                // Create tooltip from text, or update existing tooltip
+                if (localizedElement.dataset.tippyContent) {
+                    if (localizedElement._tippy) {
+                        localizedElement._tippy.setContent(localizedElement.dataset.tippyContent);
+                    } else {
+                        tippy(localizedElement, {
+                            appendTo: "parent",
+                            zIndex: 1000000,
+                            allowHTML: true
+                        });
+                    }
+                }
+            });
         });
 
         bimViewer.setConfigs({});
