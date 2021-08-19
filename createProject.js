@@ -152,7 +152,6 @@ async function createProject() {
         const modelDestDir = `${projectDir}/models/${modelId}`;
         const xktDest = `${modelDestDir}/geometry.xkt`;
         const screenshotDestDir = `${projectDir}/models/${modelId}/screenshot/`;
-        const propsDestDir = `${projectDir}/models/${modelId}/props/`;
         const sourceDestDir = `${projectDir}/models/${modelId}/source/`;
 
         if (!fs.existsSync(modelDestDir)) {
@@ -161,10 +160,6 @@ async function createProject() {
 
         if (!fs.existsSync(screenshotDestDir)) {
             fs.mkdirSync(screenshotDestDir);
-        }
-
-        if (!fs.existsSync(propsDestDir)) {
-            fs.mkdirSync(propsDestDir);
         }
 
         if (!fs.existsSync(sourceDestDir)) {
@@ -185,9 +180,6 @@ async function createProject() {
             promises.push(convert2xkt({
                 source: modelSrc,
                 output: xktDest,
-                outputObjectProperties: (id, props) => {
-                    fs.writeFileSync(`${propsDestDir}/${id}.json`, JSON.stringify(props, null, "\t"));
-                },
                 outputStats: (stats) => {
                     const metadata = projectsIndexModel.metadata;
                     metadata.sourceFormat = stats.sourceFormat || "";
@@ -195,6 +187,8 @@ async function createProject() {
                     metadata.title = stats.title || "";
                     metadata.author = stats.author || "";
                     metadata.created = stats.created || "";
+                    metadata.numPropertySets = stats.numPropertySets || 0;
+                    metadata.numMetaObjects = stats.numMetaObjects || 0;
                     metadata.numObjects = stats.numObjects || 0;
                     metadata.numTriangles = stats.numTriangles || 0;
                     metadata.numVertices = stats.numVertices || 0;
