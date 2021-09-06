@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>xeokit BIM Viewer Demo</title>
     <link rel="stylesheet" href="lib/fontawesome-free-5.11.2-web/css/all.min.css" type="text/css"/>
-    <link rel="stylesheet" href="./lib/xeokit-bim-viewer.css" type="text/css"/>
+    <link rel="stylesheet" href="./lib/xeokit-bim-viewer/xeokit-bim-viewer.css" type="text/css"/>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 
@@ -15,23 +15,20 @@
 <input type="checkbox" id="explorer_toggle"/>
 <label for="explorer_toggle" class="xeokit-i18n explorer_toggle_label xeokit-btn fas fa-2x fa-sitemap"
        data-xeokit-i18ntip="toolbar.toggleExplorer" data-tippy-content="Toggle explorer"></label>
-
 <input type="checkbox" id="inspector_toggle"/>
 <label id="inspector_toggle_label" for="inspector_toggle"
        class="xeokit-i18n inspector_toggle_label xeokit-btn fas fa-info-circle fa-2x"
        data-xeokit-i18ntip="toolbar.toggleInspector" data-tippy-content="Toggle inspector"></label>
-<div id="myInspector"></div>
-
 <div id="myExplorer"></div>
 <div id="myToolbar"></div>
+<div id="myInspector"></div>
 <div id="myViewer">
     <canvas id="myCanvas"></canvas>
     <canvas id="myNavCubeCanvas"></canvas>
 </div>
-
 </body>
 
-<!-- App tooltips libraries-->
+<!-- Tooltips libraries -->
 <script src="./lib/popper.js"></script>
 <script src="./lib/tippy.js"></script>
 
@@ -39,34 +36,29 @@
 
     // Set up application
 
-    import {Server, BIMViewer, LocaleService} from "./lib/xeokit-bim-viewer.es.js";
+    import {Server, BIMViewer, LocaleService} from "./lib/xeokit-bim-viewer/xeokit-bim-viewer.es.js";
 
-    import {messages as localeMessages} from "./locales/messages.js";
-    import {PropertySetInspector} from "./src/PropertySetInspector.js";
+    import {messages as localeMessages} from "./lib/xeokit-bim-viewer/messages.js";
 
     window.onload = function () {
 
         const requestParams = getRequestParams();
-
         const locale = requestParams.locale || "en";
-
         const projectId = requestParams.projectId;
+
         if (!projectId) {
             return;
         }
 
-        // Open the explorer tab?
         const openExplorer = requestParams.openExplorer;
         setExplorerOpen(openExplorer === "true");
 
         const enableEditModels = (requestParams.enableEditModels === "true");
 
-        // Server client will load data from the file systems
         const server = new Server({
             dataDir: "./data"
         });
 
-        // Create  BIMViewer that loads data via the Server
         const bimViewer = new BIMViewer(server, {
             localeService: new LocaleService({
                 messages: localeMessages,
@@ -75,31 +67,21 @@
             canvasElement: document.getElementById("myCanvas"), // WebGL canvas
             explorerElement: document.getElementById("myExplorer"), // Left panel
             toolbarElement: document.getElementById("myToolbar"), // Toolbar
+            inspectorElement: document.getElementById("myInspector"), // Right panel
             navCubeCanvasElement: document.getElementById("myNavCubeCanvas"),
             busyModelBackdropElement: document.getElementById("myViewer"),
-            enableEditModels: enableEditModels,
-            enableQueryObjects: true
+            enableEditModels: enableEditModels
         });
 
         bimViewer.localeService.on("updated", () => {
-
-            // Create tooltip, and possibly label text, on each element tagged as localized
-
             const localizedElements = document.querySelectorAll('.xeokit-i18n');
-
             localizedElements.forEach((localizedElement) => {
-
-                // Update text label
                 if (localizedElement.dataset.xeokitI18n) {
                     localizedElement.innerText = bimViewer.localeService.translate(localizedElement.dataset.xeokitI18n);
                 }
-
-                // Create text for tooltip
                 if (localizedElement.dataset.xeokitI18ntip) {
                     localizedElement.dataset.tippyContent = bimViewer.localeService.translate(localizedElement.dataset.xeokitI18ntip);
                 }
-
-                // Create tooltip from text, or update existing tooltip
                 if (localizedElement.dataset.tippyContent) {
                     if (localizedElement._tippy) {
                         localizedElement._tippy.setContent(localizedElement.dataset.tippyContent);
@@ -114,43 +96,14 @@
             });
         });
 
-        // Configure our viewer
         bimViewer.setConfigs({});
 
-        // Object properties queries
-
-        setInspectorToggleShown(true);
-
-        const propertySetInspector = new PropertySetInspector({
-            containerElement: document.getElementById("myInspector")
+        bimViewer.on("openExplorer", () => {
+            setExplorerOpen(true);
         });
 
-        document.getElementById("inspector_toggle").addEventListener('change', function () {
-            bimViewer.setQueryEnabled(this.checked);
-        });
-
-        bimViewer.on("queryPicked", (event) => {
-                const metaScene = bimViewer.viewer.metaScene;
-                const metaObject = metaScene.metaObjects[event.objectId];
-                if (metaObject) {
-                    const propertySetId = metaObject.propertySetId;
-                    if (propertySetId !== null && propertySetId !== undefined) {
-                        const propertySet = metaScene.propertySets[propertySetId];
-                        if (propertySet) {
-                            propertySetInspector.setPropertySet(metaObject, propertySet);
-                        }
-                    } else {
-                        propertySetInspector.setPropertySet(metaObject);
-                    }
-                }
-                setInspectorOpen(true);
-            },
-            (errMsg) => {
-            }
-        );
-
-        bimViewer.on("queryNotPicked", () => {
-            propertySetInspector.setPropertySet();
+        bimViewer.on("openInspector", () => {
+            setInspectorOpen(true);
         });
 
         bimViewer.on("addModel", (event) => { // "Add" selected in Models tab's context menu
@@ -165,11 +118,6 @@
             console.log("deleteModel: " + JSON.stringify(event, null, "\t"));
         });
 
-        //--------------------------------------------------------------------------------------------------------------
-        // Process page request params, which set up initial viewer state
-        //--------------------------------------------------------------------------------------------------------------
-
-        // Viewer configurations
         const viewerConfigs = requestParams.configs;
         if (viewerConfigs) {
             const configNameVals = viewerConfigs.split(",");
@@ -182,48 +130,30 @@
             }
         }
 
-        // Load a project
         bimViewer.loadProject(projectId, () => {
-
-                // The project may load one or models initially.
-
-                // Withe request params, we can also specify:
-                //  - models to load
-                // - explorer tab to open
-
-
                 const modelId = requestParams.modelId;
                 if (modelId) {
                     bimViewer.loadModel(modelId);
                 }
-
                 const tab = requestParams.tab;
                 if (tab) {
                     bimViewer.openTab(tab);
                 }
-
-                //
-                window.setInterval((function () {
-                    var lastHash = "";
-                    return function () {
-                        const currentHash = window.location.hash;
-                        if (currentHash !== lastHash) {
-                            parseHashParams();
-                            lastHash = currentHash;
-                        }
-                    };
-                })(), 200);
+                watchHashParams();
             },
             (errorMsg) => {
                 console.error(errorMsg);
             });
 
-        function getRequestParams() {
-            var vars = {};
-            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
-                vars[key] = value;
-            });
-            return vars;
+        function watchHashParams() {
+            let lastHash = "";
+            window.setInterval(() => {
+                const currentHash = window.location.hash;
+                if (currentHash !== lastHash) {
+                    parseHashParams();
+                    lastHash = currentHash;
+                }
+            }, 400);
         }
 
         function parseHashParams() {
@@ -236,7 +166,7 @@
             if (actions.length === 0) {
                 return;
             }
-            for (var i = 0, len = actions.length; i < len; i++) {
+            for (let i = 0, len = actions.length; i < len; i++) {
                 const action = actions[i];
                 switch (action) {
                     case "focusObject":
@@ -287,6 +217,28 @@
             }
         }
 
+        function setExplorerOpen(explorerOpen) {
+            const toggle = document.getElementById("explorer_toggle");
+            if (toggle) {
+                toggle.checked = explorerOpen;
+            }
+        }
+
+        function setInspectorOpen(inspectorOpen) {
+            const toggle = document.getElementById("inspector_toggle");
+            if (toggle) {
+                toggle.checked = inspectorOpen;
+            }
+        }
+
+        function getRequestParams() {
+            const vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
         function getHashParams() {
             const hashParams = {};
             let e;
@@ -302,32 +254,8 @@
             return hashParams;
         }
 
-        function setInspectorToggleShown(inspectorToggleShown) {
-            const toggle = document.getElementById("inspector_toggle_label");
-            if (toggle) {
-                toggle.style.visibility = inspectorToggleShown ? "visible" : "hidden";
-            }
-        }
-
-        function setExplorerOpen(explorerOpen) {
-            const toggle = document.getElementById("explorer_toggle");
-            if (toggle) {
-                toggle.checked = explorerOpen;
-            }
-        }
-
-        function setInspectorOpen(inspectorOpen) {
-            const toggle = document.getElementById("inspector_toggle");
-            if (toggle) {
-                toggle.checked = inspectorOpen;
-            }
-            bimViewer.setQueryEnabled(inspectorOpen);
-        }
-
         window.bimViewer = bimViewer; // For debugging
     }
-    ;
-
 
 </script>
 

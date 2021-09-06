@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": " rollup -c",
+    "build": "mkdir -p ./lib/xeokit-bim-viewer; cp ./node_modules/@xeokit/xeokit-bim-viewer/dist/* ./lib/xeokit-bim-viewer/.",
     "create-demo-project": "node ./createProject.js -p demoProject -s ./demoModels/**/*",
     "delete-demo-project": "node deleteProject.js -p demoProject"
   },
@@ -33,18 +33,13 @@
   },
   "homepage": "https://github.com/xeokit/xeokit-bim-viewer-app#readme",
   "dependencies": {
-    "@xeokit/xeokit-bim-viewer": "2.3.0-alpha.26",
-    "@xeokit/xeokit-xkt-utils": "1.4.0-beta.3",
+    "@xeokit/xeokit-bim-viewer": "2.3.0-alpha.38",
+    "@xeokit/xeokit-xkt-utils": "1.4.0-beta.14",
     "commander": "^8.0.0",
     "glob": "^7.1.7",
     "rimraf": "^3.0.2",
     "http-server": "^0.12.3",
     "puppeteer": "^10.1.0"
   },
-  "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "rollup": "^1.32.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^7.0.2"
-  }
+  "devDependencies": {}
 }
