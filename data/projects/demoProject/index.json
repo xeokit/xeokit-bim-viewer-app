@@ -67,7 +67,7 @@
 				"numObjects": 37,
 				"numTriangles": 2155,
 				"numVertices": 4552,
-				"xktSizeKb": "17.55",
+				"xktSizeKb": "17.70",
 				"aabb": [
 					40.04700494353892,
 					100.7425015065237,
@@ -92,7 +92,7 @@
 				"numObjects": 209,
 				"numTriangles": 18642,
 				"numVertices": 45372,
-				"xktSizeKb": "119.40",
+				"xktSizeKb": "149.22",
 				"aabb": [
 					-0.2415001392364502,
 					-1.5499999523162842,
@@ -217,7 +217,7 @@
 				"numObjects": 1775,
 				"numTriangles": 169464,
 				"numVertices": 423072,
-				"xktSizeKb": "1222.91",
+				"xktSizeKb": "1424.54",
 				"aabb": [
 					1842005.8454500393,
 					-3.5999999046325684,
@@ -225,6 +225,56 @@
 					1842038.6731422788,
 					24.589556574821472,
 					-5173282.96501628
+				]
+			}
+		},
+		{
+			"id": "rac_advanced_sample_project",
+			"name": "rac_advanced_sample_project",
+			"metadata": {
+				"sourceFormat": "IFC",
+				"schemaVersion": "",
+				"title": "",
+				"author": "",
+				"created": "",
+				"numPropertySets": 11387,
+				"numMetaObjects": 5570,
+				"numObjects": 5563,
+				"numTriangles": 283238,
+				"numVertices": 743996,
+				"xktSizeKb": "2080.71",
+				"aabb": [
+					-107.47427931501898,
+					-1.8288001356914663,
+					-98.3637601734581,
+					211.59107177727128,
+					12.485435199050698,
+					53.398864222379416
+				]
+			}
+		},
+		{
+			"id": "rme_advanced_sample_project",
+			"name": "rme_advanced_sample_project",
+			"metadata": {
+				"sourceFormat": "IFC",
+				"schemaVersion": "",
+				"title": "",
+				"author": "",
+				"created": "",
+				"numPropertySets": 16502,
+				"numMetaObjects": 6449,
+				"numObjects": 6443,
+				"numTriangles": 317875,
+				"numVertices": 739186,
+				"xktSizeKb": "1973.18",
+				"aabb": [
+					-7.080810070037842,
+					-4.699999863385062,
+					-54.12904744129628,
+					65.41678796608176,
+					15.149999820394441,
+					1.5050013540312648
 				]
 			}
 		},
