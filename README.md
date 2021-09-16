@@ -20,12 +20,7 @@ Then we can serve our viewer with GitHub pages or our own HTTP server, point our
 Using this viewer is as simple as cloning the repo, building it, dropping in your own IFC/CityJSON/LAZ/glTF models, then
 running the script on those models.
 
-Read the documentation below to get started.
-
---- 
-
-* [Source Code](https://github.com/xeokit/xeokit-bim-viewer-app)
-* [xeokit SDK](http://xeokit.io)
+Read the guide below to get started.
 
 ---
 
