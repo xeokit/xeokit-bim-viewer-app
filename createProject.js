@@ -7,7 +7,7 @@ const glob = require('glob');
 const path = require("path");
 const puppeteer = require('puppeteer');
 const httpServer = require("http-server");
-const convert2xkt = require("@xeokit/xeokit-xkt-utils/dist/convert2xkt.cjs.js");
+const convert2xkt = require("@xeokit/xeokit-convert/dist/convert2xkt.cjs.js");
 
 const SERVER_PORT = 3000;
 const SCREENSHOT_SIZE = [200, 200];
