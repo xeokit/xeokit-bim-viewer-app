@@ -24,15 +24,6 @@ Read the guide below to get started.
 
 ---
 
-## Contents
-
-- [Installing](#installing)
-- [Usage](#usage)
-    + [Creating a Project](#creating-a-project)
-    + [Deleting a Project](#deleting-a-project)
-    + [Creating the Demo Project](#creating-the-demo-project)
-    + [Deleting the Demo Project](#deleting-the-demo-project)
-    
 # Installing
 
 ````bash
@@ -90,7 +81,7 @@ node createProject.js -p demoProject -s ./demoModels/**/*
 
 We've actually already created and published that demo project, which you can view here:
 
-[https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=DenHaag_01](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=DenHaag_01)
+[https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=rac_advanced_sample_project](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=rac_advanced_sample_project)
 
 ### Deleting the Demo Project
 
