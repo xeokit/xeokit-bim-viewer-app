@@ -2,7 +2,7 @@
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/xeolabs?style=social)](https://twitter.com/xeolabs) 
 
-[![Screenshot](https://xeokit.io/img/docs/bimViewerPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer/app/index.html?projectId=Duplex)
+[![Screenshot](https://xeokit.io/img/docs/bimViewerAppPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer/app/index.html?projectId=Duplex)
 
 ---
 
