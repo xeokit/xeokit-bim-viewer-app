@@ -2,7 +2,7 @@
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/xeolabs?style=social)](https://twitter.com/xeolabs) 
 
-[![Screenshot](https://github.com/xeokit/xeokit-bim-viewer/raw/master/images/xeokit-bim-viewer.png)](https://xeokit.github.io/xeokit-bim-viewer/app/index.html?projectId=OTCConferenceCenter&tab=storeys)
+[![Screenshot](https://xeokit.io/img/docs/bimViewerPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer/app/index.html?projectId=Duplex)
 
 ---
 
