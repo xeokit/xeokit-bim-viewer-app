@@ -4,6 +4,8 @@
 
 [![Screenshot](https://xeokit.io/img/docs/bimViewerAppPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=Duplex)
 
+* [Run demo](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=Duplex)
+
 ---
 
 **[xeokit-bim-viewer-app](https://github.com/xeokit/xeokit-bim-viewer-app)** is a BIM model viewer application,
