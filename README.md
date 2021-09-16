@@ -2,9 +2,9 @@
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/xeolabs?style=social)](https://twitter.com/xeolabs) 
 
-[![Screenshot](https://xeokit.io/img/docs/bimViewerAppPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=Duplex)
+[![Screenshot](https://xeokit.io/img/docs/bimViewerAppPropertiesPanel.png)](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=rac_advanced_sample_project)
 
-* [Run demo](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=Duplex)
+* [Run demo](https://xeokit.github.io/xeokit-bim-viewer-app/?projectId=demoProject&modelId=rac_advanced_sample_project)
 
 ---
 
