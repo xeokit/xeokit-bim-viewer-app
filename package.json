@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/xeokit/xeokit-bim-viewer-app#readme",
   "dependencies": {
-    "@xeokit/xeokit-bim-viewer": "^2.4.2",
+    "@xeokit/xeokit-bim-viewer": "^2.4.3",
     "@xeokit/xeokit-convert": "^1.0.0",
     "commander": "^8.0.0",
     "glob": "^7.1.7",
