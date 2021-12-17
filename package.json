@@ -1,7 +1,7 @@
 {
   "name": "xeokit-bim-viewer-app",
   "version": "1.0.0",
-  "description": "BIM viewer build with xeokit-bim-viewer",
+  "description": "BIM viewer built with xeokit-bim-viewer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,13 +33,12 @@
   },
   "homepage": "https://github.com/xeokit/xeokit-bim-viewer-app#readme",
   "dependencies": {
-    "@xeokit/xeokit-bim-viewer": "2.3.0-beta-2",
-    "@xeokit/xeokit-convert": "1.0.0-beta.4",
+    "@xeokit/xeokit-bim-viewer": "^2.4.1",
+    "@xeokit/xeokit-convert": "^1.0.0",
     "commander": "^8.0.0",
     "glob": "^7.1.7",
-    "rimraf": "^3.0.2",
     "http-server": "^0.12.3",
-    "puppeteer": "^10.1.0"
-  },
-  "devDependencies": {}
+    "puppeteer": "^10.1.0",
+    "rimraf": "^3.0.2"
+  }
 }
