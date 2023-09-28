@@ -8,7 +8,7 @@ const path = require("path");
 const puppeteer = require('puppeteer');
 const httpServer = require("http-server");
 const convert2xkt = require("@xeokit/xeokit-convert/dist/convert2xkt.cjs.js");
-
+const WebIFC = require("web-ifc/web-ifc-api-node.js");
 const SERVER_PORT = 3000;
 const SCREENSHOT_SIZE = [200, 200];
 const HEADLESS = false;
@@ -177,7 +177,8 @@ async function createProject() {
 
             projectIndex.models.push(projectsIndexModel);
 
-            promises.push(convert2xkt({
+            promises.push(convert2xkt.convert2xkt({
+                WebIFC: WebIFC,
                 source: modelSrc,
                 output: xktDest,
                 outputStats: (stats) => {
