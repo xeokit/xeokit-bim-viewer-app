@@ -48,7 +48,7 @@ That will create directory ````./data/myProject```` and modify ````./data/projec
 2. Start a Web server:
 
 ````bash
-http-server -p 8080
+http-server -p 3000
 ````
 
 3. View the project in your browser:
